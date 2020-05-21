@@ -16,5 +16,3 @@ set(SRC
 
 add_executable(EmployeeSystem EmployeeSystem.cpp ${SRC})
 
-# target_link_libraries()
-
