@@ -275,24 +275,30 @@ void CCtrlSystem::modifyWorker()
 		cin >> newLevel;
 
 		CWorker *worker = nullptr;
-		switch (newLevel)
+		if (newLevel == 1 || newLevel == 2 || newLevel == 3)
 		{
-		case 1:
-			worker = new CEmployee(newId, newName, newLevel);
-			break;
-		case 2:
-			worker = new CManager(newId, newName, newLevel);
-			break;
-		case 3:
-			worker = new CBoss(newId, newName, newLevel);
-			break;
-		default:
-			break;
+			switch (newLevel)
+			{
+			case 1:
+				worker = new CEmployee(newId, newName, newLevel);
+				break;
+			case 2:
+				worker = new CManager(newId, newName, newLevel);
+				break;
+			case 3:
+				worker = new CBoss(newId, newName, newLevel);
+				break;
+			default:
+				break;
+			}
+			this->_p_workerArray[index] = worker;
+			this->saveFile();
+			cout << "Modified successfully! " << endl;
 		}
-
-		this->_p_workerArray[index] = worker;
-		this->saveFile();
-		cout << "Modified successfully! " << endl;
+		else
+		{
+			cout << "Error input! Modified failed!" << endl;
+		}
 	}
 	else
 	{
@@ -309,7 +315,7 @@ void CCtrlSystem::searchWorker()
 	}
 
 	cout << "Please input search method：" << endl;
-	cout << "1、by ID"   << endl;
+	cout << "1、by ID" << endl;
 	cout << "2、by name" << endl;
 	int inMethod;
 	cin >> inMethod;
@@ -334,7 +340,7 @@ void CCtrlSystem::searchWorker()
 		string inName;
 		cout << "Please input the name you want to search: " << endl;
 		cin >> inName;
-		bool nameFoundFlag = false;   // ****** important *************
+		bool nameFoundFlag = false; // ****** important *************
 		for (size_t i = 0; i < this->_size; i++)
 		{
 			if (inName == this->_p_workerArray[i]->_name)
@@ -365,7 +371,7 @@ void CCtrlSystem::sortWorkers()
 	}
 	else
 	{
-		cout << "1、Ascending order"  << endl;
+		cout << "1、Ascending order" << endl;
 		cout << "2、Descending order" << endl;
 		int inNum;
 		cin >> inNum;
@@ -415,7 +421,7 @@ void CCtrlSystem::sortWorkers()
 void CCtrlSystem::clearAllWorkers()
 {
 	cout << "Are you sure to clear? " << endl;
-	cout << "y--clear, n--exit" 	  << endl;
+	cout << "y--clear, n--exit" << endl;
 	char inch;
 	cin >> inch;
 	if (inch == 'y')
