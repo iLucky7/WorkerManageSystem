@@ -35,7 +35,7 @@ CCtrlSystem::CCtrlSystem(/* args */)
 	}
 }
 
-void CCtrlSystem::showMenu() // 增删改查 四大功能  + 显 排
+void CCtrlSystem::showMenu() const// 增删改查 四大功能  + 显 排
 {
 	cout << "********************************************" << endl;
 	cout << "***********  欢迎使用职工管理系统 **********" << endl;
@@ -51,7 +51,7 @@ void CCtrlSystem::showMenu() // 增删改查 四大功能  + 显 排
 	cout << endl;
 }
 
-void CCtrlSystem::exitSystem()
+void CCtrlSystem::exitSystem() const
 {
 	cout << "Goodbye! welcome next time!" << endl;
 	exit(0);
@@ -140,7 +140,7 @@ void CCtrlSystem::addWorkers()
 	}
 }
 
-void CCtrlSystem::saveFile()
+void CCtrlSystem::saveFile() const
 {
 	ofstream ofs;
 	ofs.open(FILENAME, ios::out);
@@ -155,7 +155,7 @@ void CCtrlSystem::saveFile()
 	ofs.close();
 }
 
-int CCtrlSystem::getSize(ifstream &ifs)
+int CCtrlSystem::getSize(ifstream &ifs) const
 {
 	string strLine;
 	int lineCount = 0;
@@ -213,7 +213,7 @@ void CCtrlSystem::showWorkers()
 	}
 }
 
-int CCtrlSystem::isExist(int id)
+int CCtrlSystem::isExist(const int& id) const
 {
 	int index = -1; // ***************important*****************
 	for (size_t i = 0; i < this->_size; i++)
@@ -306,7 +306,7 @@ void CCtrlSystem::modifyWorker()
 	}
 }
 
-void CCtrlSystem::searchWorker()
+void CCtrlSystem::searchWorker() const
 {
 	if (this->_isFileEmpty)
 	{
@@ -321,7 +321,7 @@ void CCtrlSystem::searchWorker()
 	cin >> inMethod;
 	if (inMethod == 1)
 	{
-		int inId;
+		int inId = 0;
 		cout << "Please input the ID you want to search: " << endl;
 		cin >> inId;
 

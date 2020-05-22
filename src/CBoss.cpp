@@ -4,7 +4,7 @@ CBoss::CBoss(/* args */)
 {
 }
 
-CBoss::CBoss(int id, string name, int level)
+CBoss::CBoss(const int id, const string name, const int level)
 {
     this->_id = id;
     this->_name = name;

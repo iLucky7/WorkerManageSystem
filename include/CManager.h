@@ -13,8 +13,8 @@ class CManager:public CWorker
 private:
     /* data */
 public:
-    CManager(/* args */);
-    CManager(int id, string name, int level);
+    CManager();
+    CManager(const int id,const string name,const int level);
     string getLevel() override;
     void showInfo() override;
     // void addWorker() override;

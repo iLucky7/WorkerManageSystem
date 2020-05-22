@@ -59,7 +59,7 @@ void runSystem(CCtrlSystem &workCtrl)
             break;
         }
         waitForAnyKey();
-        system("clear");
+        int ret = system("clear");
     }
 }
 

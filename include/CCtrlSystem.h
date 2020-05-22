@@ -20,19 +20,19 @@ using std::ofstream;
 class CCtrlSystem
 {
 public:
-    CCtrlSystem(/* args */);
+    CCtrlSystem();
 
-    void showMenu();
-    void exitSystem();
+    void showMenu() const;
+    void exitSystem() const;
     void addWorkers();
-    void saveFile();
-    int getSize(ifstream &ifs);
+    void saveFile() const;
+    int getSize(ifstream &ifs) const;
     void initArray();
     void showWorkers();
-    int isExist(int id);
+    int isExist(const int& id) const;
     void delWorker();
     void modifyWorker();
-    void searchWorker();
+    void searchWorker() const;
     void sortWorkers();
     void clearAllWorkers();
 

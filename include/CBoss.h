@@ -13,8 +13,8 @@ class CBoss:public CWorker
 private:
     /* data */
 public:
-    CBoss(/* args */);
-    CBoss(int id, string name, int level);
+    CBoss();
+    CBoss(const int id, const string name, const int level);
     string getLevel() override;
     void showInfo() override;
     // void addWorker() override;

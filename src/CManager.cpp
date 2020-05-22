@@ -4,7 +4,7 @@ CManager::CManager(/* args */)
 {
 }
 
-CManager::CManager(int id, string name, int level)
+CManager::CManager(const int id,const string name,const int level)
 {
     this->_id = id;
     this->_name = name;
