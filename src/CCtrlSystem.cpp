@@ -10,6 +10,7 @@ CCtrlSystem::CCtrlSystem(/* args */)
 		this->_isFileEmpty = true;
 		this->_size = 0;
 		this->_p_workerArray = nullptr;
+		ifs.close();
 		return;
 	}
 	char ch;
@@ -157,12 +158,12 @@ void CCtrlSystem::saveFile()
 int CCtrlSystem::getSize(ifstream &ifs)
 {
 	string strLine;
-	int count = 0;
+	int lineCount = 0;
 	while (std::getline(ifs, strLine))
 	{
-		count++;
+		lineCount++;
 	}
-	return count;
+	return lineCount;
 }
 
 void CCtrlSystem::initArray()
@@ -208,7 +209,6 @@ void CCtrlSystem::showWorkers()
 		{
 			this->_p_workerArray[i]->showInfo();
 		}
-
 		// cout << "" << endl;
 	}
 }
@@ -309,7 +309,7 @@ void CCtrlSystem::searchWorker()
 	}
 
 	cout << "Please input search method：" << endl;
-	cout << "1、by ID" << endl;
+	cout << "1、by ID"   << endl;
 	cout << "2、by name" << endl;
 	int inMethod;
 	cin >> inMethod;
@@ -345,7 +345,7 @@ void CCtrlSystem::searchWorker()
 		}
 		if (!nameFoundFlag)
 		{
-			cout << "No worker founded1 " << endl;
+			cout << "No worker founded! " << endl;
 		}
 	}
 	else
@@ -365,7 +365,7 @@ void CCtrlSystem::sortWorkers()
 	}
 	else
 	{
-		cout << "1、Ascending order" << endl;
+		cout << "1、Ascending order"  << endl;
 		cout << "2、Descending order" << endl;
 		int inNum;
 		cin >> inNum;
@@ -415,7 +415,7 @@ void CCtrlSystem::sortWorkers()
 void CCtrlSystem::clearAllWorkers()
 {
 	cout << "Are you sure to clear? " << endl;
-	cout << "y--clear, n--exit" << endl;
+	cout << "y--clear, n--exit" 	  << endl;
 	char inch;
 	cin >> inch;
 	if (inch == 'y')
