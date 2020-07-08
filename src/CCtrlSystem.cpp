@@ -35,7 +35,7 @@ CCtrlSystem::CCtrlSystem(/* args */)
 	}
 }
 
-void CCtrlSystem::showMenu() const// 增删改查 四大功能  + 显 排
+void CCtrlSystem::showMenu() const // 增删改查 四大功能  + 显 排
 {
 	cout << "********************************************" << endl;
 	cout << "***********  欢迎使用职工管理系统 **********" << endl;
@@ -213,7 +213,7 @@ void CCtrlSystem::showWorkers()
 	}
 }
 
-int CCtrlSystem::isExist(const int& id) const
+int CCtrlSystem::isExist(const int &id) const
 {
 	int index = -1; // ***************important*****************
 	for (size_t i = 0; i < this->_size; i++)
@@ -237,11 +237,11 @@ void CCtrlSystem::delWorker()
 
 	if (index != -1)
 	{
+		delete this->_p_workerArray[index]; // solve memory leak problem
 		for (size_t i = index; i < (this->_size - 1); i++)
 		{
 			this->_p_workerArray[i] = this->_p_workerArray[i + 1];
 		}
-		// delete this->_p_workerArray[this->_size - 1]; // added is segment fault
 		this->_size--;
 
 		this->saveFile();
